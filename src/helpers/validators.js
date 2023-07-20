@@ -76,12 +76,7 @@ export const validateFieldN2 = R.compose(
 );
 
 // 3. Количество красных фигур равно кол-ву синих.
-export const validateFieldN3 = (figures) => {
-    return R.equals(
-        countOfBlues(figures),
-        countOfReds(figures)
-    )
-}
+export const validateFieldN3 = R.converge(R.identical, [countOfBlues, countOfReds]);
 
 // 4. Синий круг, красная звезда, оранжевый квадрат треугольник любого цвета
 export const validateFieldN4 = R.allPass([
