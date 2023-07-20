@@ -38,7 +38,7 @@ const validate = R.allPass([
 const convertToNumber = (str) => Number(str);
 const round = (val) => Math.round(val);
 const square = (val) => val ** 2;
-const remDivOn3 = (val) => val % 3;
+const modulo3 = R.modulo(R.__, 3);
 const assocNumber = R.assoc('number', R.__, {from: 10, to: 2});
 const getResult = R.prop('result')
 const fetchBinary = R.pipe(
@@ -77,7 +77,7 @@ const processSequence = ({value, writeLog, handleSuccess, handleError}) => {
         R.andThen(handleLog),
         R.andThen(square),
         R.andThen(handleLog),
-        R.andThen(remDivOn3),
+        R.andThen(modulo3),
         R.andThen(handleLog),
         R.andThen(fetchAnimalById),
         R.andThen(handleSuccess),
