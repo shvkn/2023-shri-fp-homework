@@ -72,7 +72,6 @@ const processSequence = ({value, writeLog, handleSuccess, handleError}) => {
         handleLog,
         fetchBinary,
         R.andThen(handleLog),
-        R.otherwise(handleError),
         R.andThen(R.length),
         R.andThen(handleLog),
         R.andThen(square),
